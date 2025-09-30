@@ -1,19 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Footer from "../Components/Footer";
 import NavBar from "../Components/NavBar";
+import PlantCart from "../Components/plantCart";
 
 const Home = () => {
   const [plants, setPlants] = useState([]);
-  useEffect(() => {
-    fetch("https://openapi.programming-hero.com/api/plants")
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  }, []);
+
   return (
     <div>
-      <p>Plant Carts</p>
       {plants.map((plant) => {
-        <p>{plant}</p>;
+        return <PlantCart key={plant.id} plant={plant}></PlantCart>;
       })}
     </div>
   );

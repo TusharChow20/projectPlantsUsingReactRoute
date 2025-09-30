@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const PlantCart = ({ plant }) => {
   return (
@@ -10,9 +11,13 @@ const PlantCart = ({ plant }) => {
         <div className="card-body">
           <h2 className="card-title">{plant.name}</h2>
           <p>{plant.description}</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
-          </div>
+
+          <Link
+            to={`/plant-details/${plant.id}`}
+            className="card-actions justify-end"
+          >
+            <button className="btn btn-primary">Details</button>
+          </Link>
         </div>
       </div>
     </div>

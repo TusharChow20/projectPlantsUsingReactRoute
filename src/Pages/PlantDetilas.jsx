@@ -1,6 +1,9 @@
-import React from "react";
+import { useLoaderData } from "react-router";
 
 const PlantDetilas = () => {
+  const data = useLoaderData();
+  console.log(data);
+
   return (
     <div>
       <div className="card bg-base-100 w-96 shadow-sm">

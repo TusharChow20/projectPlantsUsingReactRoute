@@ -1,16 +1,16 @@
 import React from "react";
-import { Outlet } from "react-router";
+import { Outlet, useNavigation } from "react-router";
 import NavBar from "../NavBar";
 import Footer from "../Footer";
 
 const MainLayout = () => {
+  const navigation = useNavigation();
+  console.log(navigation);
+
   return (
     <div>
       <NavBar></NavBar>
-      <main className="min-h-[calc(100vh-285px)]">
-        <p>parrent</p>
-        <Outlet />
-      </main>
+      {navigation?.id='loading'? }
       <Footer />
     </div>
   );

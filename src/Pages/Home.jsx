@@ -5,14 +5,14 @@ import PlantCart from "../Components/plantCart";
 import { useLoaderData } from "react-router";
 
 const Home = () => {
-  const [plants, setPlants] = useState([]);
+  // const [plants, setPlants] = useState([]);
   const plantData = useLoaderData();
 
   return (
-    <div className="grid grid-cols-3">
-      {plantData.plants.map((plant) => {
-        return <PlantCart key={plant?.id} plant={plant}></PlantCart>;
-      })}
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-center  md:p-5">
+      {plantData.plants.map((plant) => (
+        <PlantCart key={plant?.id} plant={plant}></PlantCart>
+      ))}
     </div>
   );
 };

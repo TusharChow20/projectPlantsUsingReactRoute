@@ -5,12 +5,12 @@ import Footer from "../Footer";
 
 const MainLayout = () => {
   const navigation = useNavigation();
-  console.log(navigation);
+  // console.log(navigation);
 
   return (
     <div>
       <NavBar></NavBar>
-      {navigation?.id='loading'? }
+      <Outlet></Outlet>
       <Footer />
     </div>
   );

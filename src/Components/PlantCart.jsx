@@ -5,7 +5,7 @@ const PlantCart = ({ plant }) => {
   return (
     <div>
       <div className="card bg-base-100 w-96 shadow-sm">
-        <figure className="h-80">
+        <figure className="h-80 object-cover">
           <img src={plant.image} alt="Shoes" />
         </figure>
         <div className="card-body">

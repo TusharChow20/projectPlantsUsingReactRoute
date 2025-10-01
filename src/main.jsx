@@ -2,12 +2,12 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router";
-import Contact from "./Pages/Contact.jsx";
 import About from "./Pages/About.jsx";
 import Home from "./Pages/Home.jsx";
 import MainLayout from "./Components/LayOuts/MainLayout.jsx";
 import PlantDetilas from "./Pages/PlantDetilas.jsx";
 import axios from "axios";
+import ContactUs from "./Pages/ContactUs.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact",
-        Component: Contact,
+        Component: ContactUs,
       },
       {
         path: "/about",
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       {
         path: "/plant-details/:id",
         loader: ({ params }) =>
-          axios(`https://openapi.programming-hero.com/api/plants/${params.id}`),
+          axios(`https://openapi.programming-hero.com/api/plant/${params.id}`),
         Component: PlantDetilas,
       },
     ],

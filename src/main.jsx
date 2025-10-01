@@ -8,11 +8,13 @@ import MainLayout from "./Components/LayOuts/MainLayout.jsx";
 import PlantDetilas from "./Pages/PlantDetilas.jsx";
 import axios from "axios";
 import ContactUs from "./Pages/ContactUs.jsx";
+import Loadingspinner from "./Components/Loadingspinner.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: MainLayout,
+    hydrateFallbackElement: <Loadingspinner />,
     children: [
       {
         path: "/",
@@ -29,6 +31,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/about",
+        hydrateFallbackElement: <Loadingspinner></Loadingspinner>,
         Component: About,
       },
       {

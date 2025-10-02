@@ -9,6 +9,7 @@ import PlantDetilas from "./Pages/PlantDetilas.jsx";
 import axios from "axios";
 import ContactUs from "./Pages/ContactUs.jsx";
 import Loadingspinner from "./Components/Loadingspinner.jsx";
+import Cart from "./Pages/Cart.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           axios(`https://openapi.programming-hero.com/api/plant/${params.id}`),
         Component: PlantDetilas,
+      },
+      {
+        path: "/cart",
+        Component: Cart,
       },
     ],
   },

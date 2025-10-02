@@ -1,16 +1,20 @@
-import React from "react";
+/* eslint-disable react-refresh/only-export-components */
+import React, { createContext, useState } from "react";
 import { Outlet, useNavigation } from "react-router";
 import NavBar from "../NavBar";
 import Footer from "../Footer";
 import Loadingspinner from "../Loadingspinner";
 // import Loadingspinner from "../Loadingspinner";
 
+export const CartCountContext = createContext({});
+
 const MainLayout = () => {
   const navigation = useNavigation();
-  console.log(navigation.state);
+  // console.log(navigation.state);
+  const [cart, setCart] = useState([]);
 
   return (
-    <div>
+    <CartCountContext.Provider value={{ cart, setCart }}>
       <NavBar></NavBar>
       {navigation.state === "loading" ? (
         <Loadingspinner />
@@ -20,7 +24,7 @@ const MainLayout = () => {
         </main>
       )}
       <Footer />
-    </div>
+    </CartCountContext.Provider>
   );
 };
 

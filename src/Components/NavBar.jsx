@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router";
 import ThemeToggle from "./ThemeToggle";
+import { ShoppingBasket } from "lucide-react";
+import { CartCountContext } from "./LayOuts/MainLayout";
 
 const NavBar = () => {
+  const { cart, setCart } = useContext(CartCountContext);
+
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm ">
@@ -38,6 +42,12 @@ const NavBar = () => {
               <li>
                 <Link to="/contact">Contact</Link>
               </li>
+              <li>
+                <Link to="/cart">
+                  <ShoppingBasket />
+                  Cart
+                </Link>
+              </li>
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">
@@ -54,6 +64,12 @@ const NavBar = () => {
             </li>
             <li>
               <Link to="/contact">Contact</Link>
+            </li>
+            <li>
+              <Link to="/cart">
+                <ShoppingBasket />
+                Cart (<span>{cart.length}</span>)
+              </Link>
             </li>
           </ul>
         </div>

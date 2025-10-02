@@ -1,8 +1,17 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router";
+import { CartCountContext } from "../Components/LayOuts/MainLayout";
 
 const PlantDetilas = () => {
+  const { cart, setCart } = useContext(CartCountContext);
+  // let variable = 0;
+  // const CountContext = createContext(variable);
   const { data } = useLoaderData();
-  console.log(data.plants);
+  // console.log(data.plants);
+  // const handleCartCount = () => {
+  //   <CountContext value={variable + 1}></CountContext>;
+  // };
+  // console.log(cart);
 
   return (
     <div>
@@ -23,7 +32,10 @@ const PlantDetilas = () => {
           </p>
           <div className="flex flex-col justify-center items-center mt-4 md:flex-row md:justify-between">
             <p className="text-3xl">Price: {data.plants.price} TK</p>
-            <button className="btn text-2xl p-6 mt-4 sm:w-full md:w-auto">
+            <button
+              onClick={() => setCart([...cart, data.plants])}
+              className="btn text-2xl p-6 mt-4 sm:w-full md:w-auto"
+            >
               Add to Cart
             </button>
           </div>
